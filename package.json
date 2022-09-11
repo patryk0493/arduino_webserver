@@ -13,14 +13,26 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "react-toggle-button": "^2.2.0",
     "typescript": "^4.8.3",
     "web-vitals": "^2.1.4"
+  },
+  "proxy": "http://192.168.0.33",
+  "awot-static": {
+    "sources": "./build",
+    "indexFile": "index.html",
+    "sketchDir": "./BlinkServer",
+    "exclude": [
+      "*.map",
+      "service-worker.js"
+    ]
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dist": "awot-static"
   },
   "eslintConfig": {
     "extends": [
