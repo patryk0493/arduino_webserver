@@ -13,10 +13,6 @@ void readLed(Request &req, Response &res) {
   res.print(!ledOff);
 }
 
-void readLed2(Request &req, Response &res) {
-  res.print(false);
-}
-
 void updateLed(Request &req, Response &res) {
   ledOff = (req.read() != '0');
   digitalWrite(LED_BUILTIN, !ledOff);
@@ -35,12 +31,12 @@ void setup() {
   WiFi.begin(ssid, pass);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
-    Serial.print(".");
+    Serial.println(".");
   }
+  Serial.println();
   Serial.println(WiFi.localIP());
 
   app.get("/led", &readLed);
-  app.get("/led2", &readLed2);
   app.put("/led", &updateLed);
 
   app.use(staticFiles());
